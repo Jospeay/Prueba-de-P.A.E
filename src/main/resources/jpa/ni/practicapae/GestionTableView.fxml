@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jpa.ni.practicapae.Controller.ParticipanteController">
+
+
+
+    <VBox alignment="CENTER" spacing="10" style="-fx-padding: 20;">
+        <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="SISTEMA DE GESTIÓN DE TORNEO DEPORTIVO" />
+    </VBox>
+
+    <VBox spacing="10.0" style="-fx-padding: 20;">
+
+
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Información del Participante" />
+
+        <GridPane hgap="10" vgap="10">
+
+            <Label text="Nombre completo:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+
+            <TextField fx:id="txtNombre" prefWidth="250" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Edad:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="txtEdad" prefWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTelefono" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Categoría:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+
+            <ComboBox fx:id="cmbCategoria" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+        </GridPane>
+
+
+        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Género" />
+        <HBox spacing="15">
+
+            <RadioButton fx:id="rbMasculino" text="Masculino" />
+            <RadioButton fx:id="rbFemenino" text="Femenino" />
+
+        </HBox>
+
+
+        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Modalidades" />
+
+        <HBox spacing="15">
+
+            <CheckBox fx:id="chkIndividual" text="Individual" />
+            <CheckBox fx:id="chkParejas" text="Parejas" />
+            <CheckBox fx:id="chkEquipos" text="Equipos" />
+
+        </HBox>
+
+
+        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Características" />
+
+        <VBox spacing="8">
+
+            <CheckBox fx:id="chkFederado" text="Federado" />
+            <CheckBox fx:id="chkExperiencia" text="Experiencia previa" />
+            <CheckBox fx:id="chkDisponibilidad" text="Disponibilidad fines de semana" />
+            <CheckBox fx:id="chkSeguro" text="Seguro deportivo" />
+
+        </VBox>
+
+        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Lista de Disciplinas" />
+
+        <GridPane hgap="20" vgap="10">
+
+            <CheckBox fx:id="chkFutbol" text="Fútbol" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <CheckBox fx:id="chkBaloncesto" text="Baloncesto" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <CheckBox fx:id="chkVoleibol" text="Voleibol" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <CheckBox fx:id="chkAtletismo" text="Atletismo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <CheckBox fx:id="chkNatacion" text="Natación" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+
+            <CheckBox fx:id="chkTenis" text="Tenis" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+        </GridPane>
+
+        <HBox spacing="15">
+
+            <Button fx:id="btnRegistrar" onAction="#registrarParticipante" text="Registrar" />
+            <Button onAction="#cargarParticipanteParaEditar" text="Actualizar" />
+            <Button onAction="#limpiarCampos" text="Limpiar" />
+            <Button onAction="#eliminarParticipante" text="Eliminar seleccionado" />
+        </HBox>
+
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Participantes Registrados" />
+
+        <TableView fx:id="tablaParticipantes" prefHeight="250">
+
+            <columns>
+
+                <TableColumn fx:id="colNombre" prefWidth="150" text="Nombre" />
+                <TableColumn fx:id="colEdad" prefWidth="60" text="Edad" />
+                <TableColumn fx:id="colCategoria" prefWidth="100" text="Categoría" />
+                <TableColumn fx:id="colGenero" prefWidth="100" text="Género" />
+                <TableColumn fx:id="colModalidad" prefWidth="130" text="Modalidad" />
+                <TableColumn fx:id="colDisciplina" prefWidth="150" text="Disciplina" />
+                <TableColumn fx:id="colEstado" prefWidth="100" text="Estado" />
+            </columns>
+
+        </TableView>
+      <padding>
+         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+      </padding>
+
+    </VBox>
+
+</VBox>
